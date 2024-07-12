@@ -12,8 +12,6 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #000; 
-            color: #fff;
         }
         .footer {
             color: #fff;
@@ -34,25 +32,27 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
-    <nav class="bg-gray-800 border-b border-gray-700">
-        <div class="container mx-auto flex justify-between items-center p-4">
+<body class="bg-white text-black transition-colors duration-300">
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
             <a class="text-xl font-bold" href="#">LiveStream Test</a>
-            <button class="text-white md:hidden" id="nav-toggle">
+            <button class="md:hidden text-white" id="nav-toggle">
                 <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
                     <path d="M4 5h16M4 12h16m-7 7h7"/>
                 </svg>
             </button>
-            <div class="hidden md:flex">
-                <ul class="flex space-x-4">
-                    <li><a class="hover:underline" href="#">Home</a></li>
-                </ul>
+            <div class="hidden md:flex space-x-4">
+                <a class="hover:underline" href="#">Home</a>
             </div>
+        </div>
+        <div class="hidden md:hidden flex flex-col space-y-2 mt-2" id="nav-menu">
+            <a class="hover:underline" href="#">Home</a>
         </div>
     </nav>
 
     <div class="container mx-auto p-4 min-h-screen flex flex-col justify-center items-center">
         <h1 class="text-3xl font-bold mb-8">Test M3U8, DASH streams with Free HTML5 Player</h1>
+        <button id="toggle-theme" class="bg-gray-800 hover:bg-gray-900 text-white p-2 mb-8 rounded">Toggle Background</button>
 
         <div class="w-full max-w-lg mb-8">
             <div class="flex">
@@ -72,28 +72,34 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer bg-gray-800">
         Copyright &copy; <a href="https://anym3u8player.com/">Best HLS M3U8 Player Online</a>
     </footer>
 
     <script src="script.js"></script>
     <script>
-      document.getElementById('nav-toggle').addEventListener('click', function() {
-          var nav = document.querySelector('nav div div');
-          nav.classList.toggle('hidden');
-      });
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            var navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('hidden');
+        });
 
-      var _paq = window._paq = window._paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//analytics.techyhub.co/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '11']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
+        document.getElementById('toggle-theme').addEventListener('click', function() {
+            document.body.classList.toggle('bg-white');
+            document.body.classList.toggle('bg-gray-900');
+            document.body.classList.toggle('text-black');
+            document.body.classList.toggle('text-white');
+        });
+
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//analytics.techyhub.co/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '11']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
     </script>
-
 </body>
 </html>
